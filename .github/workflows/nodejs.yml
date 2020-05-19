@@ -23,13 +23,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Declare git user info
+        run: |
+        git config --global user.name "rxliuli"
+        git config --global user.email "rxliuli@gmail.com"
       - name: build DataList
         run: |
         npm i
         npm run build
       - name: Commit report
         run: |
-        git config --global user.name "rxliuli"
-        git config --global user.email "rxliuli@gmail.com"
         git commit -am "build DataList.json"
         git push
