@@ -24,11 +24,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: build DataList
-        - run: yarn 
-        - run: yarn build
+        run: yarn 
+        run: yarn build
       - name: Commit report
-        - run: git config --global user.name 'rxliuli' 
-        - run: git config --global user.email 'rxliuli@gmail.com' 
-        - run: git add -A 
-        - run: git commit -am "build DataList.json" 
-        - run: git push
+        run: git config --global user.name 'rxliuli' 
+        run: git config --global user.email 'rxliuli@gmail.com' 
+        run: git add -A 
+        run: git commit -am "build DataList.json" 
+        run: git push
