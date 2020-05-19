@@ -1,0 +1,14 @@
+{
+  "name": "img-bed",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rxliuli/img-bed.git",
+  "author": "rxliuli",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
