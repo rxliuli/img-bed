@@ -26,4 +26,4 @@ jobs:
       - name: build DataList
         run: yarn && yarn build
       - name: Commit report
-        run: git config --global user.name 'rxliuli' && git config --global user.email 'rxliuli@gmail.com' && git add -A && git commit -am "build DataList.json" && git push
+        run: git config --global user.name 'rxliuli' && git config --global user.email 'rxliuli@gmail.com' && git add -A && git commit -am "build DataList.json" && git push origin master
