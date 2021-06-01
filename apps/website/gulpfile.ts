@@ -29,7 +29,7 @@ const suffix = new Set([
  * 生成扫描到的图片元数据
  */
 export async function generate() {
-  const dir = path.resolve(__dirname, '../../images')
+  const dir = path.resolve(__dirname, '../../docs')
   const names = await readdir(path.resolve(dir))
   const list = await AsyncArray.map(
     names.filter((name) =>
