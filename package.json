@@ -1,14 +1,54 @@
 {
   "name": "img-bed",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "https://github.com/rxliuli/img-bed.git",
   "author": "rxliuli",
   "license": "MIT",
   "scripts": {
-    "build": "node build.js"
+    "clean": "lerna run clean --parallel && lerna clean -y && rimraf node_modules",
+    "runstream": "lerna run --include-dependencies --stream",
+    "setup": "yarn && yarn runstream setup && yarn",
+    "build": "yarn runstream build"
+  },
+  "workspaces": {
+    "packages": [
+      "libs/*",
+      "apps/*",
+      "examples/*"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "yarn commitlint --edit $1"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "endOfLine": "lf"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "4.3.8",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "rimraf": "^3.0.2"
   }
 }
