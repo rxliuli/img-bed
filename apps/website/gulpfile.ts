@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { readdir, writeJSON } from 'fs-extra'
+import { copy, readdir, writeJSON } from 'fs-extra'
 import { AsyncArray } from '@liuli-util/async'
 import imageSize from 'image-size'
 
@@ -46,4 +46,11 @@ export async function generate() {
     },
   )
   await writeJSON(path.resolve(__dirname, 'src/photos.json'), list)
+}
+
+/**
+ * 复制静态资源到 docs/web 目录
+ */
+export async function copyStatic() {
+  await copy(path.resolve(__dirname, 'dist'), path.resolve('../../docs/web/'))
 }

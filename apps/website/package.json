@@ -5,7 +5,7 @@
   "scripts": {
     "setup": "yarn generate",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "yarn generate && tsc && vite build && gulp copyStatic",
     "serve": "vite preview",
     "generate": "gulp generate"
   },
